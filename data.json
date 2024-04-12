@@ -123,19 +123,23 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character whose perk level changed."
                     },
                     {
                         "name": "perk",
-                        "type": "PerkFactory.Perk"
+                        "type": "PerkFactory.Perk",
+                        "notes": "The perk that changed level."
                     },
                     {
                         "name": "level",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "The new level of the perk."
                     },
                     {
                         "name": "increased",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "True if the level increased, false if it decreased."
                     }
                 ]
             }
@@ -146,7 +150,8 @@
                 "parameters": [
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare",
+                        "notes": "The square that was loaded."
                     }
                 ]
             }
@@ -236,7 +241,8 @@
                 "parameters": [
                     {
                         "name": "forageSystem",
-                        "type": "forageSystem"
+                        "type": "forageSystem",
+                        "notes": "The foraging system."
                     }
                 ]
             }
@@ -261,7 +267,7 @@
             }
         },
         "OnAdminMessage": {
-            "notes": "Fires when a ticket is created and the local player is an admin. The co-ordinates are the location of the player creating the ticket.",
+            "notes": "Fires when a ticket is created and the local player is an admin.",
             "context": {
                 "server": false,
                 "singleplayer": false
@@ -270,19 +276,23 @@
                 "parameters": [
                     {
                         "name": "message",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "The text of the ticket."
                     },
                     {
                         "name": "x",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World X co-ordinate of the player who made the ticket."
                     },
                     {
                         "name": "y",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Y co-ordinate of the player who made the ticket."
                     },
                     {
                         "name": "z",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Z co-ordinate of the player who made the ticket."
                     }
                 ]
             }
@@ -293,15 +303,18 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "World X co-ordinate of the sound."
                     },
                     {
                         "name": "y",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "World Y co-ordinate of the sound."
                     },
                     {
                         "name": "z",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "World Z co-ordinate of the sound."
                     }
                 ]
             }
@@ -339,16 +352,18 @@
             "deprecated": true
         },
         "OnCharacterCollide": {
-            "notes": "Fires when a non-zombie character collides with another (possibly zombie) character.",
+            "notes": "Fires when a non-zombie character collides into another (possibly zombie) character.",
             "callback": {
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character colliding into the other character."
                     },
                     {
                         "name": "collidedCharacter",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character being collided into."
                     }
                 ]
             }
@@ -366,7 +381,8 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character who died."
                     }
                 ]
             }
@@ -397,19 +413,23 @@
                 "parameters": [
                     {
                         "name": "module",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "The module the command was sent with"
                     },
                     {
                         "name": "command",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "The command the command was sent with"
                     },
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player who sent the command"
                     },
                     {
                         "name": "args",
-                        "type": "table"
+                        "type": "table",
+                        "notes": "The arguments table the command was sent with"
                     }
                 ]
             }
@@ -420,7 +440,8 @@
                 "parameters": [
                     {
                         "name": "climateManager",
-                        "type": "ClimateManager"
+                        "type": "ClimateManager",
+                        "notes": "The climate manager."
                     }
                 ]
             }
@@ -431,7 +452,8 @@
                 "parameters": [
                     {
                         "name": "climateManager",
-                        "type": "ClimateManager"
+                        "type": "ClimateManager",
+                        "notes": "The climate manager."
                     }
                 ]
             }
@@ -445,13 +467,14 @@
                 "parameters": [
                     {
                         "name": "climateManager",
-                        "type": "ClimateManager"
+                        "type": "ClimateManager",
+                        "notes": "The climate manager."
                     }
                 ]
             }
         },
         "OnClothingUpdated": {
-            "notes": "Fires every time a character's clothing is updated. This includes when accumulating dirt or blood.",
+            "notes": "Fires every time a character's clothing is updated. This includes changing clothes and accumulating dirt or blood.",
             "context": {
                 "server": false
             },
@@ -459,7 +482,8 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character whose clothing updated."
                     }
                 ]
             }
@@ -534,8 +558,9 @@
             "callback": {
                 "parameters": [
                     {
-                        "name": "playerIndex",
-                        "type": "integer"
+                        "name": "playerNum",
+                        "type": "integer",
+                        "notes": "The index of the player who could not be added."
                     }
                 ]
             }
@@ -572,11 +597,13 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoLivingCharacter"
+                        "type": "IsoLivingCharacter",
+                        "notes": "The character who was created."
                     },
                     {
                         "name": "desc",
-                        "type": "SurvivorDesc"
+                        "type": "SurvivorDesc",
+                        "notes": "The character's descriptor."
                     }
                 ]
             }
@@ -589,12 +616,14 @@
             "callback": {
                 "parameters": [
                     {
-                        "name": "playerIndex",
-                        "type": "integer"
+                        "name": "playerNum",
+                        "type": "integer",
+                        "notes": "The player number of the newly-spawned character"
                     },
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The new player object"
                     }
                 ]
             }
@@ -608,7 +637,8 @@
                 "parameters": [
                     {
                         "name": "survivor",
-                        "type": "IsoSurvivor"
+                        "type": "IsoSurvivor",
+                        "notes": "The survior that was created."
                     }
                 ]
             }
@@ -691,31 +721,38 @@
                 "parameters": [
                     {
                         "name": "guid",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "GUID of the line being displayed."
                     },
                     {
                         "name": "codes",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Codes of the line being displayed. These typically contain perk/stat changes, but can be used to associate any arbitrary data with a line."
                     },
                     {
                         "name": "x",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "World X co-ordinate where the line is being displayed."
                     },
                     {
                         "name": "y",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "World Y co-ordinate where the line is being displayed."
                     },
                     {
                         "name": "z",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "World Z co-ordinate where the line is being displayed."
                     },
                     {
                         "name": "text",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "The displayed, translated text of the line."
                     },
                     {
                         "name": "device",
-                        "type": "WaveSignalDevice"
+                        "type": "WaveSignalDevice",
+                        "notes": "The device playing the line."
                     }
                 ]
             }
@@ -739,11 +776,13 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The character disabling search mode."
                     },
                     {
                         "name": "isSearchMode",
-                        "type": "boolean"
+                        "type": "false",
+                        "notes": "Always false."
                     }
                 ]
             }
@@ -871,11 +910,13 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The character disabling search mode."
                     },
                     {
                         "name": "isSearchMode",
-                        "type": "boolean"
+                        "type": "true",
+                        "notes": "Always true."
                     }
                 ]
             }
@@ -889,7 +930,8 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character that entered the vehicle."
                     }
                 ]
             }
@@ -900,11 +942,13 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character that equipped the item."
                     },
                     {
                         "name": "item",
-                        "type": "InventoryItem"
+                        "type": "InventoryItem",
+                        "notes": "The item that was equipped."
                     }
                 ]
             }
@@ -915,11 +959,13 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character that equipped the item."
                     },
                     {
                         "name": "item",
-                        "type": "InventoryItem"
+                        "type": "InventoryItem",
+                        "notes": "The item that was equipped."
                     }
                 ]
             }
@@ -933,7 +979,8 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character that exited the vehicle."
                     }
                 ]
             }
@@ -948,7 +995,7 @@
             }
         },
         "OnFillContainer": {
-            "notes": "Fires whenever a container is first filled with loot, or when loot respawns. Never fires for corpses. For vehicle containers, the roomType is instead the vehicle type.",
+            "notes": "Fires whenever a container is first filled with loot, or when loot respawns. Never fires for corpses.",
             "context": {
                 "client": false
             },
@@ -956,59 +1003,68 @@
                 "parameters": [
                     {
                         "name": "roomType",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Distribution type of the room the container is in, or the type of the vehicle."
                     },
                     {
                         "name": "containerType",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "The type of the container that was filled."
                     },
                     {
                         "name": "container",
-                        "type": "ItemContainer"
+                        "type": "ItemContainer",
+                        "notes": "The container that was filled."
                     }
                 ]
             }
         },
         "OnFillInventoryObjectContextMenu": {
-            "notes": "Fires after the context menu for an inventory item is created.",
+            "notes": "Fires after the context menu for an inventory item is filled.",
             "context": {
                 "server": false
             },
             "callback": {
                 "parameters": [
                     {
-                        "name": "playerIndex",
-                        "type": "integer"
+                        "name": "playerNum",
+                        "type": "integer",
+                        "notes": "The number of the player whose context menu has been filled."
                     },
                     {
                         "name": "context",
-                        "type": "ISContextMenu"
+                        "type": "ISContextMenu",
+                        "notes": "The context menu that was filled."
                     },
                     {
                         "name": "items",
-                        "type": "table"
+                        "type": "table",
+                        "notes": "The items that were selected to fill the context menu. TODO: this has a complicated structure and probably needs a class definition"
                     }
                 ]
             }
         },
         "OnFillInventoryContextMenuNoItems": {
-            "notes": "Fires after the context menu for an empty inventory is created.",
+            "notes": "Fires after the context menu for an empty inventory is created. This event is not properly registered so you must register it before adding your function.",
             "context": {
                 "server": false
             },
             "callback": {
                 "parameters": [
                     {
-                        "name": "playerIndex",
-                        "type": "integer"
+                        "name": "playerNum",
+                        "type": "integer",
+                        "notes": "The number of the player whose context menu has been filled."
                     },
                     {
                         "name": "context",
-                        "type": "ISContextMenu"
+                        "type": "ISContextMenu",
+                        "notes": "The context menu that was filled."
                     },
                     {
                         "name": "isLoot",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "False if the container is the player's inventory."
                     }
                 ]
             }
@@ -1032,27 +1088,31 @@
             }
         },
         "OnFillWorldObjectContextMenu": {
-            "notes": "Fires after the context menu for a world object is created.",
+            "notes": "Fires after the world context menu is filled.",
             "context": {
                 "server": false
             },
             "callback": {
                 "parameters": [
                     {
-                        "name": "playerIndex",
-                        "type": "integer"
+                        "name": "playerNum",
+                        "type": "integer",
+                        "notes": "The number of the player whose context menu has been filled."
                     },
                     {
                         "name": "context",
-                        "type": "ISContextMenu"
+                        "type": "ISContextMenu",
+                        "notes": "The context menu that was filled."
                     },
                     {
                         "name": "worldobjects",
-                        "type": "table"
+                        "type": "table<integer, IsoObject>",
+                        "notes": "The objects that were selected."
                     },
                     {
                         "name": "test",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the context menu was filled to test for interactive objects on the square. If true, the context menu will not actually be displayed."
                     }
                 ]
             }
@@ -1164,7 +1224,8 @@
                 "parameters": [
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare",
+                        "notes": "The square that was burned."
                     }
                 ]
             }
@@ -1175,19 +1236,23 @@
                 "parameters": [
                     {
                         "name": "zombie",
-                        "type": "IsoZombie"
+                        "type": "IsoZombie",
+                        "notes": "The zombie that was hit."
                     },
                     {
                         "name": "attacker",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character that hit the zombie."
                     },
                     {
                         "name": "bodyPart",
-                        "type": "BodyPartType"
+                        "type": "BodyPartType",
+                        "notes": "The type of the body part that was hit."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon the zombie was hit with."
                     }
                 ]
             }
@@ -1198,7 +1263,8 @@
                 "parameters": [
                     {
                         "name": "newGame",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "True if this is the first time the save has started."
                     }
                 ]
             }
@@ -1521,19 +1587,23 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character who performed the action."
                     },
                     {
                         "name": "success",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the action succeeded."
                     },
                     {
                         "name": "vehicleId",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "The ID of the vehicle that was operated on."
                     },
                     {
-                        "name": "partId",
-                        "type": "string"
+                        "name": "partType",
+                        "type": "string",
+                        "notes": "The type of the part that was operated on."
                     },
                     {
                         "name": "itemId",
@@ -1666,11 +1736,13 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The character that was created."
                     },
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare",
+                        "notes": "The square the character spawned on."
                     }
                 ]
             }
@@ -1717,11 +1789,13 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoMovingObject"
+                        "type": "IsoMovingObject",
+                        "notes": "The object that collided into the other object."
                     },
                     {
                         "name": "collided",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "notes": "The object that was collided into."
                     }
                 ]
             }
@@ -1823,11 +1897,13 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player who attacked."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon the player attacked with."
                     }
                 ]
             }
@@ -1841,26 +1917,30 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player who died."
                     }
                 ]
             }
         },
         "OnPlayerGetDamage": {
-            "notes": "Fires every time a local player takes damage. Bleeding bodyparts fire the event once per frame each. Possible damageTypes are: POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE It also fires when zombies are hit by weapons: this is the only case in which the event fires on the server.",
+            "notes": "Fires every time a local player takes damage. Bleeding bodyparts fire the event once per frame each. It also fires when zombies are hit by weapons: this is the only case in which the event fires on the server.",
             "callback": {
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character who took damage."
                     },
                     {
                         "name": "damageType",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Possible types are POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE TODO: enum for this"
                     },
                     {
                         "name": "damage",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "The damage that was taken."
                     }
                 ]
             }
@@ -1874,7 +1954,8 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "note": "The player who is moving."
                     }
                 ]
             }
@@ -1895,7 +1976,8 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player being updated."
                     }
                 ]
             }
@@ -2002,51 +2084,57 @@
             }
         },
         "OnPreFillInventoryObjectContextMenu": {
-            "notes": "Fires while the context menu for an inventory item is being created, before vanilla options are added.",
+            "notes": "Fires when the context menu for an inventory item is created, before it is filled.",
             "context": {
                 "server": false
             },
             "callback": {
                 "parameters": [
                     {
-                        "name": "playerIndex",
-                        "type": "integer"
+                        "name": "playerNum",
+                        "type": "integer",
+                        "notes": "The number of the player whose context menu has been created."
                     },
                     {
                         "name": "context",
-                        "type": "ISContextMenu"
+                        "type": "ISContextMenu",
+                        "notes": "The context menu that was created."
                     },
                     {
                         "name": "items",
-                        "type": "table"
+                        "type": "table",
+                        "notes": "The items that were selected to created the context menu. TODO: this has a complicated structure and probably needs a class definition"
                     }
                 ]
             }
         },
         "OnPreFillInventoryContextMenuNoItems": {
-            "notes": "Fires while the context menu for an empty inventory is being created, before vanilla options are added.",
+            "notes": "Fires when the context menu for an empty inventory is created, before it is filled.",
             "context": {
                 "server": false
             },
             "callback": {
                 "parameters": [
                     {
-                        "name": "playerIndex",
-                        "type": "integer"
+                        "name": "playerNum",
+                        "type": "integer",
+                        "notes": "The number of the player whose context menu has been created."
                     },
                     {
                         "name": "context",
-                        "type": "ISContextMenu"
+                        "type": "ISContextMenu",
+                        "notes": "The context menu that was created."
                     },
                     {
                         "name": "isLoot",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "False if the container is the player's inventory."
                     }
                 ]
             }
         },
         "OnPreFillWorldObjectContextMenu": {
-            "notes": "Fires while the context menu for a world object is being created, before vanilla options are added.",
+            "notes": "Fires after the world context menu is created, before it is filled.",
             "context": {
                 "server": false
             },
@@ -2054,19 +2142,23 @@
                 "parameters": [
                     {
                         "name": "playerIndex",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "The number of the player whose context menu has been created."
                     },
                     {
                         "name": "context",
-                        "type": "ISContextMenu"
+                        "type": "ISContextMenu",
+                        "notes": "The context menu that was created."
                     },
                     {
                         "name": "worldobjects",
-                        "type": "table"
+                        "type": "table<integer, IsoObject>",
+                        "notes": "The objects that were selected."
                     },
                     {
                         "name": "test",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the context menu was created to test for interactive objects on the square. If true, the context menu will not actually be displayed."
                     }
                 ]
             }
@@ -2093,11 +2185,13 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player attempting to rack."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon they are attempting to rack."
                     }
                 ]
             }
@@ -2111,17 +2205,19 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player attempting to reload."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon they are attempting to reload."
                     }
                 ]
             }
         },
         "OnPressWalkTo": {
-            "notes": "Fires when the local player 1 presses their Walk To keybind. The values passed are always 0,0,0 ",
+            "notes": "Fires when the local player 1 presses their Walk To keybind.",
             "context": {
                 "server": false
             },
@@ -2129,15 +2225,18 @@
                 "parameters": [
                     {
                         "name": "arg0",
-                        "type": "integer"
+                        "type": "0",
+                        "notes": "Always zero."
                     },
                     {
                         "name": "arg1",
-                        "type": "integer"
+                        "type": "0",
+                        "notes": "Always zero."
                     },
                     {
                         "name": "arg2",
-                        "type": "integer"
+                        "type": "0",
+                        "notes": "Always zero."
                     }
                 ]
             }
@@ -2173,19 +2272,21 @@
             "deprecated": true
         },
         "OnReceiveGlobalModData": {
-            "notes": "Fires when receiving a global moddata table. The table argument is false if the table did not exist.",
+            "notes": "Fires when receiving a global moddata table.",
             "context": {
                 "singleplayer": false
             },
             "callback": {
                 "parameters": [
                     {
-                        "name": "tableName",
-                        "type": "string"
+                        "name": "key",
+                        "type": "string",
+                        "notes": "The key of the mod data table that was requested."
                     },
                     {
                         "name": "data",
-                        "type": "table"
+                        "type": "table|false",
+                        "notes": "The mod data table that was returned. False if there was no mod data table by that key."
                     }
                 ]
             }
@@ -2400,15 +2501,18 @@
                 "parameters": [
                     {
                         "name": "module",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "The module the command was sent with"
                     },
                     {
                         "name": "command",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "The command the command was sent with"
                     },
                     {
                         "name": "args",
-                        "type": "table"
+                        "type": "table",
+                        "notes": "The arguments table the command was sent with"
                     }
                 ]
             }
@@ -2540,7 +2644,7 @@
             }
         },
         "OnSteamRulesRefreshComplete": {
-            "notes": "Fires after a server's rules are retrieved. 'rules' is a table of information about the server.",
+            "notes": "Fires after a server's rules are retrieved.",
             "context": {
                 "server": false
             },
@@ -2556,7 +2660,8 @@
                     },
                     {
                         "name": "rules",
-                        "type": "table"
+                        "type": "table",
+                        "notes": "Table of information about the server TODO: investigate what this actually is, class definition?"
                     }
                 ]
             }
@@ -2576,7 +2681,7 @@
             }
         },
         "OnSteamServerResponded2": {
-            "notes": "Fires when receiving a server for the favourited server list.",
+            "notes": "Fires when receiving a server for the favourite server list.",
             "context": {
                 "server": false
             },
@@ -2666,7 +2771,8 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character who moved seats."
                     }
                 ]
             }
@@ -2721,11 +2827,13 @@
                 "parameters": [
                     {
                         "name": "throwable",
-                        "type": "IsoTrap"
+                        "type": "IsoTrap",
+                        "notes": "The explosive."
                     },
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare",
+                        "notes": "The square it exploded on."
                     }
                 ]
             }
@@ -2766,18 +2874,20 @@
                 "parameters": [
                     {
                         "name": "tick",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "The number of ticks since the game started."
                     }
                 ]
             }
         },
         "OnTickEvenPaused": {
-            "notes": "Fires every game tick, even if the game is paused. Tick is 0 while paused.",
+            "notes": "Fires every game tick, even if the game is paused.",
             "callback": {
                 "parameters": [
                     {
                         "name": "tick",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "The number of ticks since the game started. Always zero while paused."
                     }
                 ]
             }
@@ -2802,11 +2912,13 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The character toggling search mode."
                     },
                     {
                         "name": "isSearchMode",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether search mode is now on or off."
                     }
                 ]
             }
@@ -2883,15 +2995,18 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character using the vehicle."
                     },
                     {
                         "name": "vehicle",
-                        "type": "BaseVehicle"
+                        "type": "BaseVehicle",
+                        "notes": "The vehicle being used."
                     },
                     {
                         "name": "pressedNotTapped",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "True if the button was held for a short duration, false if the button was tapped."
                     }
                 ]
             }
@@ -2902,7 +3017,8 @@
                 "parameters": [
                     {
                         "name": "driver",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character driving the vehicle."
                     }
                 ]
             }
@@ -2920,17 +3036,19 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "notes": "The object which has gained/lost water."
                     },
                     {
                         "name": "previousAmount",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "The amount of water the object had before the change."
                     }
                 ]
             }
         },
         "OnWeaponHitCharacter": {
-            "notes": "Fires when a non-zombie character is hit by an attack.",
+            "notes": "Fires when a non-zombie character is hit by an attack from another non-zombie character.",
             "context": {
                 "server": false
             },
@@ -2938,19 +3056,23 @@
                 "parameters": [
                     {
                         "name": "attacker",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character who attacked."
                     },
                     {
                         "name": "target",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character who was hit by the attack."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon that was attacked with."
                     },
                     {
                         "name": "damage",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "How much damage the attack did. TODO: what does this actually mean? injuries?"
                     }
                 ]
             }
@@ -2964,15 +3086,18 @@
                 "parameters": [
                     {
                         "name": "attacker",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character attacking the object."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon the object was attacked with."
                     },
                     {
                         "name": "object",
-                        "type": "IsoThumpable"
+                        "type": "IsoThumpable",
+                        "notes": "The object that was attacked."
                     }
                 ]
             }
@@ -2986,11 +3111,13 @@
                 "parameters": [
                     {
                         "name": "attacker",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character hitting the tree."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon the tree was hit with."
                     }
                 ]
             }
@@ -3001,19 +3128,23 @@
                 "parameters": [
                     {
                         "name": "attacker",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character who attacked."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon the character attacked with."
                     },
                     {
                         "name": "target",
-                        "type": "IsoMovingObject"
+                        "type": "IsoMovingObject",
+                        "notes": "The target of the attack."
                     },
                     {
                         "name": "damage",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "The damage of the attack."
                     }
                 ]
             }
@@ -3024,11 +3155,13 @@
                 "parameters": [
                     {
                         "name": "attacker",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The character attacking."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon being attacked with."
                     }
                 ]
             }
@@ -3042,11 +3175,13 @@
                 "parameters": [
                     {
                         "name": "attacker",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player attacking."
                     },
                     {
                         "name": "weapon",
-                        "type": "HandWeapon"
+                        "type": "HandWeapon",
+                        "notes": "The weapon being attacked with."
                     }
                 ]
             }
@@ -3120,38 +3255,45 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World X co-ordinate of the square the sound was created on."
                     },
                     {
                         "name": "y",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Y co-ordinate of the square the sound was created on."
                     },
                     {
                         "name": "z",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Z co-ordinate of the square the sound was created on."
                     },
                     {
                         "name": "radius",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Radius of the sound."
                     },
                     {
                         "name": "volume",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Volume of the sound. Zombies are more likely to investigate louder sounds when they have multiple choices."
                     },
                     {
                         "name": "source",
-                        "type": "Object"
+                        "type": "Object",
+                        "notes": "The source of the sound."
                     }
                 ]
             }
         },
         "OnZombieDead": {
-            "notes": "Fires when a zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added.",
+            "notes": "Fires when a zombie dies. The zombie's inventory is not filled with loot when this event fires, but their clothing and attached items are added. The corpse does not exist until a few seconds later.",
             "callback": {
                 "parameters": [
                     {
                         "name": "zombie",
-                        "type": "IsoZombie"
+                        "type": "IsoZombie",
+                        "notes": "The zombie that died."
                     }
                 ]
             }
@@ -3165,7 +3307,8 @@
                 "parameters": [
                     {
                         "name": "zombie",
-                        "type": "IsoZombie"
+                        "type": "IsoZombie",
+                        "notes": "The zombie being updated."
                     }
                 ]
             }
@@ -3176,7 +3319,8 @@
                 "parameters": [
                     {
                         "name": "system",
-                        "type": "forageSystem"
+                        "type": "forageSystem",
+                        "notes": "The foraging system."
                     }
                 ]
             }
@@ -3187,7 +3331,8 @@
                 "parameters": [
                     {
                         "name": "system",
-                        "type": "forageSystem"
+                        "type": "forageSystem",
+                        "notes": "The foraging system."
                     }
                 ]
             }
@@ -3198,7 +3343,8 @@
                 "parameters": [
                     {
                         "name": "system",
-                        "type": "forageSystem"
+                        "type": "forageSystem",
+                        "notes": "The foraging system."
                     }
                 ]
             }
@@ -3209,7 +3355,8 @@
                 "parameters": [
                     {
                         "name": "system",
-                        "type": "forageSystem"
+                        "type": "forageSystem",
+                        "notes": "The foraging system."
                     }
                 ]
             }
@@ -3220,7 +3367,8 @@
                 "parameters": [
                     {
                         "name": "system",
-                        "type": "forageSystem"
+                        "type": "forageSystem",
+                        "notes": "The foraging system."
                     }
                 ]
             }
@@ -3284,7 +3432,8 @@
                 "parameters": [
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare",
+                        "notes": "The square being reused."
                     }
                 ]
             }
@@ -3353,11 +3502,13 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player who added the item."
                     },
                     {
                         "name": "item",
-                        "type": "InventoryItem"
+                        "type": "InventoryItem",
+                        "notes": "The item that was added."
                     }
                 ]
             }
@@ -3372,11 +3523,13 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player who removed the item."
                     },
                     {
                         "name": "index",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "The index of the removed item."
                     }
                 ]
             }
@@ -3391,11 +3544,13 @@
                 "parameters": [
                     {
                         "name": "player",
-                        "type": "IsoPlayer"
+                        "type": "IsoPlayer",
+                        "notes": "The player changing the state."
                     },
                     {
                         "name": "state",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "The new state. TODO: enum for this"
                     }
                 ]
             }
@@ -3426,7 +3581,8 @@
                 "parameters": [
                     {
                         "name": "attacker",
-                        "type": "IsoLivingCharacter"
+                        "type": "IsoLivingCharacter",
+                        "notes": "The character attempting to attack."
                     },
                     {
                         "name": "chargeDelta",
@@ -3448,7 +3604,8 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character auto-drinking."
                     }
                 ]
             }
