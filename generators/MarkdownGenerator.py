@@ -66,7 +66,7 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
         :param data: Callback definition
         :return: Callback documentation
         """
-        result = "### Parameters\n"
+        result = "\n**Parameters**\n\n"
 
         if len(data["parameters"]) > 0:
             paramDetails: list[list[str]] = []
@@ -79,7 +79,7 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
 
         retVal = data.get("returns")
         if retVal:
-            result += "### Returns\n"
+            result += "**Returns**\n\n"
             result += self.createTable(["Name", "Type", "Notes"],
                                        [[retVal.get("name", ""), retVal["type"], retVal.get("notes", "")]])
 
