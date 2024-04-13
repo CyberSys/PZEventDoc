@@ -1823,6 +1823,7 @@ Item_AcceptItemFunction: Called when checking if an item is allowed inside a con
 | --- | --- | --- |
 | container | ItemContainer | The container the item is being added to |
 | item | InventoryItem | The item being added to the container |
+
 **Returns**
 
 | Name | Type | Notes |
@@ -1838,6 +1839,7 @@ Recipe_OnCanPerform: Called when checking if a character is able to perform the 
 | recipe | Recipe | The recipe being checked |
 | character | IsoGameCharacter | The character the recipe is being checked for |
 | item | InventoryItem? | The item the player right clicked to see this recipe. Null if it's being checked because of the crafting menu. |
+
 **Returns**
 
 | Name | Type | Notes |
@@ -1852,6 +1854,7 @@ Recipe_OnTest: Called when checking if an item is allowed to be used in a recipe
 | --- | --- | --- |
 | item | InventoryItem | The item being checked |
 | result | Result | The result of the recipe |
+
 **Returns**
 
 | Name | Type | Notes |
@@ -1908,6 +1911,7 @@ VehiclePart_checkEngine: Called every tick while the engine is running. If any p
 | --- | --- | --- |
 | vehicle | BaseVehicle | The vehicle the part belongs to |
 | part | VehiclePart | The part being checked |
+
 **Returns**
 
 | Name | Type | Notes |
@@ -1922,6 +1926,7 @@ VehiclePart_checkOperate: Called every tick while a player is in the driver's se
 | --- | --- | --- |
 | vehicle | BaseVehicle | The vehicle the part belongs to |
 | part | VehiclePart | The part being checked |
+
 **Returns**
 
 | Name | Type | Notes |
@@ -1957,6 +1962,7 @@ VehiclePart_Install_test: Called when testing if the part can be installed.
 | vehicle | BaseVehicle | The vehicle the part belongs to |
 | part | VehiclePart | The part being tested |
 | character | IsoGameCharacter | The character using the part |
+
 **Returns**
 
 | Name | Type | Notes |
@@ -1981,6 +1987,7 @@ VehiclePart_Uninstall_test: Called when testing if the part can be uninstalled.
 | vehicle | BaseVehicle | The vehicle the part belongs to |
 | part | VehiclePart | The part being tested |
 | character | IsoGameCharacter | The character using the part |
+
 **Returns**
 
 | Name | Type | Notes |
