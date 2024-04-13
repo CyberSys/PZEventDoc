@@ -2017,7 +2017,7 @@
                     {
                         "name": "damageType",
                         "type": "PlayerDamageType",
-                        "notes": "The type of damage the player took."
+                        "notes": "The type of damage the character took."
                     },
                     {
                         "name": "damage",
@@ -3148,7 +3148,7 @@
             }
         },
         "OnWeaponHitCharacter": {
-            "notes": "Fires when a non-zombie character is hit by an attack from another non-zombie character.",
+            "notes": "Fires when a non-zombie character is hit by an attack from a local player.",
             "context": {
                 "server": false
             },
