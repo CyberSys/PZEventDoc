@@ -49,10 +49,11 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
         result: str = headings + "\n" + divider + "\n"
 
         for row in rows:
-            assert len(row) == len(columnHeadings),\
+            assert len(row) == len(columnHeadings), \
                 f"Markdown: createTable: row has {len(row)} entries in {len(columnHeadings)} column table"
             result += "|"
             for item in row:
+                item = item.replace('|', '\\|')
                 result += f" {item} |"
             result += "\n"
         return result
