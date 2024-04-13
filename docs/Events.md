@@ -483,7 +483,7 @@ None.
 | --- | --- | --- |
 | playerNum | integer | The number of the player whose context menu has been filled. |
 | context | ISContextMenu | The context menu that was filled. |
-| items | table | The items that were selected to fill the context menu. TODO: this has a complicated structure and probably needs a class definition |
+| items | table<integer, InventoryItem>\|table<integer, ContextMenuItemStack> | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
 ## OnFillInventoryContextMenuNoItems
 (Client) OnFillInventoryContextMenuNoItems: Fires after the context menu for an empty inventory is created. This event is not properly registered so you must register it before adding your function.
 
@@ -1018,7 +1018,7 @@ None.
 | --- | --- | --- |
 | playerNum | integer | The number of the player whose context menu has been created. |
 | context | ISContextMenu | The context menu that was created. |
-| items | table | The items that were selected to created the context menu. TODO: this has a complicated structure and probably needs a class definition |
+| items | table<integer, InventoryItem>\|table<integer, ContextMenuItemStack> | The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems. |
 ## OnPreFillInventoryContextMenuNoItems
 (Client) OnPreFillInventoryContextMenuNoItems: Fires when the context menu for an empty inventory is created, before it is filled.
 
@@ -1088,7 +1088,7 @@ None.
 | Name | Type | Notes |
 | --- | --- | --- |
 | key | string | The key of the mod data table that was requested. |
-| data | table|false | The mod data table that was returned. False if there was no mod data table by that key. |
+| data | table\|false | The mod data table that was returned. False if there was no mod data table by that key. |
 ## OnReceiveItemListNet
 (Multiplayer) OnReceiveItemListNet: Fires when receiving a list of items from another player.
 
