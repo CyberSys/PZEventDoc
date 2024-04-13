@@ -80,7 +80,7 @@ class MarkdownGenerator(BaseGenerator, extensions=["md"]):
 
         retVal = data.get("returns")
         if retVal:
-            result += "**Returns**\n\n"
+            result += "\n**Returns**\n\n"
             result += self.createTable(["Name", "Type", "Notes"],
                                        [[retVal.get("name", ""), retVal["type"], retVal.get("notes", "")]])
 
