@@ -9,12 +9,14 @@
             "callback": {
                 "parameters": [
                     {
-                        "name": "factionName",
-                        "type": "string"
+                        "name": "faction",
+                        "type": "string",
+                        "notes": "Name of the faction."
                     },
                     {
                         "name": "username",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Username of the faction leader."
                     }
                 ]
             }
@@ -28,12 +30,14 @@
             "callback": {
                 "parameters": [
                     {
-                        "name": "safehouseTitle",
-                        "type": "string"
+                        "name": "safehouse",
+                        "type": "string",
+                        "notes": "Name of the safehouse."
                     },
                     {
                         "name": "username",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Username of the safehouse owner."
                     }
                 ]
             }
@@ -48,13 +52,14 @@
                 "parameters": [
                     {
                         "name": "accepted",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the trade was accepted."
                     }
                 ]
             }
         },
         "AddXP": {
-            "notes": "Fires when a local character gains xp, unless it is flagged not to.",
+            "notes": "Fires after a local character gains perk XP, except when the XP source specifically requested not to.",
             "context": {
                 "server": false
             },
@@ -62,30 +67,35 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character who gained the XP."
                     },
                     {
                         "name": "perk",
-                        "type": "PerkFactory.Perk"
+                        "type": "PerkFactory.Perk",
+                        "notes": "The perk XP was gained in."
                     },
                     {
                         "name": "amount",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "The amount of XP gained. This is the final value after all modifiers."
                     }
                 ]
             }
         },
         "DoSpecialTooltip": {
-            "notes": "Fires when updating the tooltip of an IsoObject with a special tooltip.",
+            "notes": "Fires when updating the tooltip of an IsoObject with a special tooltip. Used for hover-over information about plants.",
             "callback": {
                 "parameters": [
                     {
                         "name": "tooltip",
-                        "type": "ObjectTooltip"
+                        "type": "ObjectTooltip",
+                        "notes": "Empty tooltip for the object."
                     },
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare",
+                        "notes": "Square of the object the tooltip is being updated for."
                     }
                 ]
             }
@@ -165,8 +175,9 @@
             "callback": {
                 "parameters": [
                     {
-                        "name": "itemtable",
-                        "type": "table"
+                        "name": "inventory",
+                        "type": "MngInvItemTable",
+                        "notes": "Details of the player's inventory."
                     }
                 ]
             }
@@ -180,15 +191,18 @@
                 "parameters": [
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character whose state changed."
                     },
                     {
                         "name": "currentState",
-                        "type": "State"
+                        "type": "State",
+                        "notes": "The state the character changed to."
                     },
                     {
                         "name": "previousState",
-                        "type": "State"
+                        "type": "State",
+                        "notes": "The character's previous state."
                     }
                 ]
             }
@@ -215,7 +229,7 @@
             "deprecated": true
         },
         "OnAcceptInvite": {
-            "notes": "Fires when the client accepts a steam invite to a server. See Steamworks API",
+            "notes": "Fires when the client accepts a steam invite to a server.",
             "context": {
                 "server": false
             },
@@ -223,7 +237,8 @@
                 "parameters": [
                     {
                         "name": "connectString",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Steamworks connection string. Takes the format of '+connect ip:port'"
                     }
                 ]
             }
@@ -257,11 +272,13 @@
                 "parameters": [
                     {
                         "name": "message",
-                        "type": "ChatMessage"
+                        "type": "ChatMessage",
+                        "notes": "The message that was added."
                     },
                     {
                         "name": "tabId",
-                        "type": "short"
+                        "type": "short",
+                        "notes": "The ID of the tab the message was added to."
                     }
                 ]
             }
@@ -414,22 +431,22 @@
                     {
                         "name": "module",
                         "type": "string",
-                        "notes": "The module the command was sent with"
+                        "notes": "The module the command was sent with."
                     },
                     {
                         "name": "command",
                         "type": "string",
-                        "notes": "The command the command was sent with"
+                        "notes": "The command the command was sent with."
                     },
                     {
                         "name": "player",
                         "type": "IsoPlayer",
-                        "notes": "The player who sent the command"
+                        "notes": "The player who sent the command."
                     },
                     {
                         "name": "args",
                         "type": "table",
-                        "notes": "The arguments table the command was sent with"
+                        "notes": "The arguments table the command was sent with."
                     }
                 ]
             }
@@ -545,7 +562,8 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "any"
+                        "type": "any",
+                        "notes": "The container that was added or removed."
                     }
                 ]
             }
@@ -661,7 +679,8 @@
                 "parameters": [
                     {
                         "name": "key",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Key code of the key that was pressed."
                     }
                 ]
             }
@@ -675,7 +694,8 @@
                 "parameters": [
                     {
                         "name": "key",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Key code of the key that was pressed."
                     }
                 ]
             }
@@ -689,7 +709,8 @@
                 "parameters": [
                     {
                         "name": "key",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Key code of the key that was pressed."
                     }
                 ]
             }
@@ -707,7 +728,8 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoThumpable"
+                        "type": "IsoThumpable",
+                        "notes": "The thumpable that was destroyed."
                     }
                 ]
             }
@@ -801,7 +823,7 @@
             "deprecated": true
         },
         "OnDoTileBuilding2": {
-            "notes": "Fires when the local mouse and keyboard player builds something.",
+            "notes": "Fires when the local mouse and keyboard player moves their build cursor.",
             "context": {
                 "server": false
             },
@@ -809,33 +831,39 @@
                 "parameters": [
                     {
                         "name": "cursor",
-                        "type": "ISMoveableCursor"
+                        "type": "ISMoveableCursor",
+                        "notes": "The build cursor object the player is dragging."
                     },
                     {
                         "name": "bRender",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the preview should be rendered."
                     },
                     {
                         "name": "x",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World X co-ordinate of the square the build cursor is over."
                     },
                     {
                         "name": "y",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Y co-ordinate of the square the build cursor is over."
                     },
                     {
                         "name": "z",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Z co-ordinate of the square the build cursor is over."
                     },
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare?",
+                        "notes": "The square the build cursor is over."
                     }
                 ]
             }
         },
         "OnDoTileBuilding3": {
-            "notes": "Fires when a controller player builds something.",
+            "notes": "Fires when a controller player moves their build cursor.",
             "context": {
                 "server": false
             },
@@ -843,27 +871,33 @@
                 "parameters": [
                     {
                         "name": "cursor",
-                        "type": "ISMoveableCursor"
+                        "type": "ISMoveableCursor",
+                        "notes": "The cursor object the player is dragging."
                     },
                     {
                         "name": "bRender",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the preview should be rendered."
                     },
                     {
                         "name": "x",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World X co-ordinate of the square the build cursor is over."
                     },
                     {
                         "name": "y",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Y co-ordinate of the square the build cursor is over."
                     },
                     {
                         "name": "z",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Z co-ordinate of the square the build cursor is over."
                     },
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare?",
+                        "notes": "The square the build cursor is over."
                     }
                 ]
             }
@@ -876,7 +910,7 @@
             "deprecated": true
         },
         "OnDynamicMovableRecipe": {
-            "notes": "Fires when a local character crafts a dynamically generated Moveable scrapping recipe.",
+            "notes": "Fires when a local character crafts a dynamically generated Movable scrapping recipe.",
             "context": {
                 "server": false
             },
@@ -884,19 +918,23 @@
                 "parameters": [
                     {
                         "name": "sprite",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Sprite of the movable."
                     },
                     {
                         "name": "recipe",
-                        "type": "MoveableRecipe"
+                        "type": "MoveableRecipe",
+                        "notes": "The movable recipe that was crafted."
                     },
                     {
                         "name": "item",
-                        "type": "Moveable"
+                        "type": "Moveable",
+                        "notes": "The movable item being scrapped."
                     },
                     {
                         "name": "character",
-                        "type": "IsoGameCharacter"
+                        "type": "IsoGameCharacter",
+                        "notes": "The character crafting the recipe."
                     }
                 ]
             }
@@ -1078,11 +1116,13 @@
                 "parameters": [
                     {
                         "name": "context",
-                        "type": "ISContextMenu"
+                        "type": "ISContextMenu",
+                        "notes": "The foraging context menu."
                     },
                     {
                         "name": "icon",
-                        "type": "ISBaseIcon"
+                        "type": "ISBaseIcon",
+                        "notes": "The foraging icon the context menu was created for."
                     }
                 ]
             }
@@ -1161,7 +1201,8 @@
                 "parameters": [
                     {
                         "name": "controllerId",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "ID of the controller."
                     }
                 ]
             }
@@ -1175,7 +1216,8 @@
                 "parameters": [
                     {
                         "name": "controllerId",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "ID of the controller."
                     }
                 ]
             }
@@ -1190,7 +1232,7 @@
                 "parameters": [
                     {
                         "name": "schema",
-                        "type": "table"
+                        "type": "table<string, table<integer, DBSchemaEntry>>"
                     }
                 ]
             }
@@ -1205,7 +1247,7 @@
                 "parameters": [
                     {
                         "name": "data",
-                        "type": "ArrayList"
+                        "type": "ArrayList<DBResult>"
                     },
                     {
                         "name": "rowId",
@@ -1275,15 +1317,18 @@
                 "parameters": [
                     {
                         "name": "weatherPeriod",
-                        "type": "WeatherPeriod"
+                        "type": "WeatherPeriod",
+                        "notes": "The weather period that was created."
                     },
                     {
                         "name": "weatherStage",
-                        "type": "WeatherStage"
+                        "type": "WeatherStage",
+                        "notes": "The weather stage that was created."
                     },
                     {
                         "name": "strength",
-                        "type": "float"
+                        "type": "float",
+                        "notes": "TODO"
                     }
                 ]
             }
@@ -1294,7 +1339,8 @@
                 "parameters": [
                     {
                         "name": "recordedMedia",
-                        "type": "RecordedMedia"
+                        "type": "RecordedMedia",
+                        "notes": "The RecordedMedia object."
                     }
                 ]
             }
@@ -1348,7 +1394,8 @@
                 "parameters": [
                     {
                         "name": "joypadId",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "ID of the joypad."
                     }
                 ]
             }
@@ -1362,7 +1409,8 @@
                 "parameters": [
                     {
                         "name": "joypadId",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "ID of the joypad."
                     }
                 ]
             }
@@ -1376,7 +1424,8 @@
                 "parameters": [
                     {
                         "name": "joypadId",
-                        "type": "double"
+                        "type": "integer",
+                        "notes": "ID of the joypad."
                     }
                 ]
             }
@@ -1390,7 +1439,8 @@
                 "parameters": [
                     {
                         "name": "joypadId",
-                        "type": "double"
+                        "type": "integer",
+                        "notes": "ID of the joypad."
                     }
                 ]
             }
@@ -1404,7 +1454,8 @@
                 "parameters": [
                     {
                         "name": "joypadId",
-                        "type": "double"
+                        "type": "integer",
+                        "notes": "ID of the joypad."
                     }
                 ]
             }
@@ -1418,7 +1469,8 @@
                 "parameters": [
                     {
                         "name": "joypadId",
-                        "type": "double"
+                        "type": "integer",
+                        "notes": "ID of the joypad."
                     }
                 ]
             }
@@ -1441,7 +1493,8 @@
                 "parameters": [
                     {
                         "name": "key",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Key code of the key that was held."
                     }
                 ]
             }
@@ -1455,7 +1508,8 @@
                 "parameters": [
                     {
                         "name": "key",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Key code of the key that was released."
                     }
                 ]
             }
@@ -1469,7 +1523,8 @@
                 "parameters": [
                     {
                         "name": "key",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Key code of the key that was pressed."
                     }
                 ]
             }
@@ -1495,7 +1550,8 @@
                 "parameters": [
                     {
                         "name": "spriteManager",
-                        "type": "IsoSpriteManager"
+                        "type": "IsoSpriteManager",
+                        "notes": "The sprite manager."
                     }
                 ]
             }
@@ -1515,7 +1571,8 @@
                 "parameters": [
                     {
                         "name": "square",
-                        "type": "IsoGridSquare"
+                        "type": "IsoGridSquare",
+                        "notes": "The square that had its moddata updated."
                     }
                 ]
             }
@@ -1526,11 +1583,13 @@
                 "parameters": [
                     {
                         "name": "scriptManager",
-                        "type": "RadioScriptManager"
+                        "type": "RadioScriptManager",
+                        "notes": "The radio script manager."
                     },
                     {
                         "name": "newGame",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "True when a new save launches for the first time."
                     }
                 ]
             }
@@ -1644,17 +1703,19 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
             }
         },
         "OnMouseMove": {
-            "notes": "Fires every frame, unless mouse movement is eaten by something else. The latter two values are the first two multiplied by the mouse player's zoom level.",
+            "notes": "Fires every frame, unless mouse movement is eaten by something else.",
             "context": {
                 "server": false
             },
@@ -1662,19 +1723,23 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Screen Y co-ordinate of the click."
                     },
                     {
                         "name": "xMultiplied",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Screen X co-ordinate of the click multiplied by zoom level."
                     },
                     {
                         "name": "yMultiplied",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Screen Y co-ordinate of the click multiplied by zoom level."
                     }
                 ]
             }
@@ -1688,11 +1753,13 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
             }
@@ -1722,7 +1789,8 @@
                 "parameters": [
                     {
                         "name": "fire",
-                        "type": "IsoFire"
+                        "type": "IsoFire",
+                        "notes": "The fire that was created."
                     }
                 ]
             }
@@ -1767,7 +1835,8 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "notes": "The object about to be removed."
                     }
                 ]
             }
@@ -1778,7 +1847,8 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "note": "The object being added."
                     }
                 ]
             }
@@ -1809,15 +1879,18 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "notes": "The object that was clicked."
                     },
                     {
                         "name": "x",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
             }
@@ -1831,15 +1904,18 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "notes": "The object that was clicked."
                     },
                     {
                         "name": "x",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
             }
@@ -1853,15 +1929,18 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "notes": "The object that was clicked."
                     },
                     {
                         "name": "x",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
             }
@@ -1875,15 +1954,18 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "notes": "The object that was clicked."
                     },
                     {
                         "name": "x",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
             }
@@ -1934,8 +2016,8 @@
                     },
                     {
                         "name": "damageType",
-                        "type": "string",
-                        "notes": "Possible types are POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE TODO: enum for this"
+                        "type": "PlayerDamageType",
+                        "notes": "The type of damage the player took."
                     },
                     {
                         "name": "damage",
@@ -2001,7 +2083,8 @@
                 "parameters": [
                     {
                         "name": "z",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "The Z level that was rendered."
                     }
                 ]
             }
@@ -2019,7 +2102,8 @@
                 "parameters": [
                     {
                         "name": "cell",
-                        "type": "IsoCell"
+                        "type": "IsoCell",
+                        "notes": "The cell that was loaded."
                     },
                     {
                         "name": "x",
@@ -2388,19 +2472,23 @@
                 "parameters": [
                     {
                         "name": "oldX",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Previous width of the window."
                     },
                     {
                         "name": "oldY",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "Previous height of the window."
                     },
                     {
                         "name": "newX",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "New width of the window."
                     },
                     {
                         "name": "newY",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "New height of the window."
                     }
                 ]
             }
@@ -2414,11 +2502,13 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
             }
@@ -2432,11 +2522,13 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen X co-ordinate of the click."
                     },
                     {
                         "name": "y",
-                        "type": "double"
+                        "type": "double",
+                        "notes": "Screen Y co-ordinate of the click."
                     }
                 ]
             }
@@ -2486,7 +2578,8 @@
                 "parameters": [
                     {
                         "name": "room",
-                        "type": "IsoRoom"
+                        "type": "IsoRoom",
+                        "notes": "The room."
                     }
                 ]
             }
@@ -2502,17 +2595,17 @@
                     {
                         "name": "module",
                         "type": "string",
-                        "notes": "The module the command was sent with"
+                        "notes": "The module the command was sent with."
                     },
                     {
                         "name": "command",
                         "type": "string",
-                        "notes": "The command the command was sent with"
+                        "notes": "The command the command was sent with."
                     },
                     {
                         "name": "args",
                         "type": "table",
-                        "notes": "The arguments table the command was sent with"
+                        "notes": "The arguments table the command was sent with."
                     }
                 ]
             }
@@ -2619,7 +2712,8 @@
                 "parameters": [
                     {
                         "name": "steamID",
-                        "type": "string"
+                        "type": "string",
+                        "notes": "Steam ID of the friend who was gained/lost."
                     }
                 ]
             }
@@ -2839,7 +2933,7 @@
             }
         },
         "OnThunderEvent": {
-            "notes": "Fires when thunder hits.",
+            "notes": "Fires when a thunder event is enqueued.",
             "context": {
                 "server": false
             },
@@ -2847,23 +2941,28 @@
                 "parameters": [
                     {
                         "name": "x",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World X co-ordinate where the thunder event will happen."
                     },
                     {
                         "name": "y",
-                        "type": "integer"
+                        "type": "integer",
+                        "notes": "World Y co-ordinate where the thunder event will happen."
                     },
                     {
                         "name": "strike",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the thunder event will make a striking sound."
                     },
                     {
                         "name": "light",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the thunder event will create light."
                     },
                     {
                         "name": "rumble",
-                        "type": "boolean"
+                        "type": "boolean",
+                        "notes": "Whether the thunder event will make a rumbling sound."
                     }
                 ]
             }
@@ -2898,7 +2997,8 @@
                 "parameters": [
                     {
                         "name": "object",
-                        "type": "IsoObject"
+                        "type": "IsoObject",
+                        "notes": "The object being removed."
                     }
                 ]
             }
