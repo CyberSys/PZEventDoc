@@ -6,8 +6,8 @@
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| factionName | string |  |
-| username | string |  |
+| faction | string | Name of the faction. |
+| username | string | Username of the faction leader. |
 ## AcceptedSafehouseInvite
 (Multiplayer) (Client) AcceptedSafehouseInvite: Fires when a player accepts an invite to a safehouse.
 
@@ -15,8 +15,8 @@
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| safehouseTitle | string |  |
-| username | string |  |
+| safehouse | string | Name of the safehouse. |
+| username | string | Username of the safehouse owner. |
 ## AcceptedTrade
 (Multiplayer) (Client) AcceptedTrade: Fires when the other player in the client's current trade accepts or declines the trade.
 
@@ -24,26 +24,26 @@
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| accepted | boolean |  |
+| accepted | boolean | Whether the trade was accepted. |
 ## AddXP
-(Client) AddXP: Fires when a local character gains xp, unless it is flagged not to.
+(Client) AddXP: Fires after a local character gains perk XP, except when the XP source specifically requested not to.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | IsoGameCharacter |  |
-| perk | PerkFactory.Perk |  |
-| amount | float |  |
+| character | IsoGameCharacter | The character who gained the XP. |
+| perk | PerkFactory.Perk | The perk XP was gained in. |
+| amount | float | The amount of XP gained. This is the final value after all modifiers. |
 ## DoSpecialTooltip
-DoSpecialTooltip: Fires when updating the tooltip of an IsoObject with a special tooltip.
+DoSpecialTooltip: Fires when updating the tooltip of an IsoObject with a special tooltip. Used for hover-over information about plants.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| tooltip | ObjectTooltip |  |
-| square | IsoGridSquare |  |
+| tooltip | ObjectTooltip | Empty tooltip for the object. |
+| square | IsoGridSquare | Square of the object the tooltip is being updated for. |
 ## EveryDays
 EveryDays: Fires at 0:00 every in-game day.
 
@@ -94,7 +94,7 @@ LoadGridsquare: Fires after a new square is loaded.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| itemtable | table |  |
+| inventory | MngInvItemTable | Details of the player's inventory. |
 ## OnAIStateChange
 (Client) OnAIStateChange: Fires when a local zombie or any loaded player changes state.
 
@@ -102,17 +102,17 @@ LoadGridsquare: Fires after a new square is loaded.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| character | IsoGameCharacter |  |
-| currentState | State |  |
-| previousState | State |  |
+| character | IsoGameCharacter | The character whose state changed. |
+| currentState | State | The state the character changed to. |
+| previousState | State | The character's previous state. |
 ## OnAcceptInvite
-(Client) OnAcceptInvite: Fires when the client accepts a steam invite to a server. See Steamworks API
+(Client) OnAcceptInvite: Fires when the client accepts a steam invite to a server.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| connectString | string |  |
+| connectString | string | Steamworks connection string. Takes the format of '+connect ip:port' |
 ## onAddForageDefs
 onAddForageDefs: Fires after the foraging item definitions are created.
 
@@ -128,8 +128,8 @@ onAddForageDefs: Fires after the foraging item definitions are created.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| message | ChatMessage |  |
-| tabId | short |  |
+| message | ChatMessage | The message that was added. |
+| tabId | short | The ID of the tab the message was added to. |
 ## OnAdminMessage
 (Multiplayer) (Client) OnAdminMessage: Fires when a ticket is created and the local player is an admin.
 
@@ -193,10 +193,10 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| module | string | The module the command was sent with |
-| command | string | The command the command was sent with |
-| player | IsoPlayer | The player who sent the command |
-| args | table | The arguments table the command was sent with |
+| module | string | The module the command was sent with. |
+| command | string | The command the command was sent with. |
+| player | IsoPlayer | The player who sent the command. |
+| args | table | The arguments table the command was sent with. |
 ## OnClimateManagerInit
 OnClimateManagerInit: Fires when the climate manager is initialised.
 
@@ -260,7 +260,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | any |  |
+| object | any | The container that was added or removed. |
 ## OnCoopJoinFailed
 (Client) OnCoopJoinFailed: Fires when a splitscreen character fails to be added.
 
@@ -318,7 +318,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| key | integer |  |
+| key | integer | Key code of the key that was pressed. |
 ## OnCustomUIKeyReleased
 (Client) OnCustomUIKeyReleased: Fires when a key that is not used by vanilla UI is released.
 
@@ -326,7 +326,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| key | integer |  |
+| key | integer | Key code of the key that was pressed. |
 ## OnCustomUIKeyPressed
 (Client) OnCustomUIKeyPressed: Fires when a key that is not used by vanilla UI is pressed.
 
@@ -334,7 +334,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| key | integer |  |
+| key | integer | Key code of the key that was pressed. |
 ## OnDestroyIsoThumpable
 OnDestroyIsoThumpable: Fires when an IsoThumpable object is destroyed by damage.
 
@@ -342,7 +342,7 @@ OnDestroyIsoThumpable: Fires when an IsoThumpable object is destroyed by damage.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | IsoThumpable |  |
+| object | IsoThumpable | The thumpable that was destroyed. |
 ## OnDeviceText
 (Client) OnDeviceText: Fires whenever a radio displays text.
 
@@ -379,42 +379,42 @@ OnDistributionMerge: Fires when the distribution tables merge.
 
 None.
 ## OnDoTileBuilding2
-(Client) OnDoTileBuilding2: Fires when the local mouse and keyboard player builds something.
+(Client) OnDoTileBuilding2: Fires when the local mouse and keyboard player moves their build cursor.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| cursor | ISMoveableCursor |  |
-| bRender | boolean |  |
-| x | integer |  |
-| y | integer |  |
-| z | integer |  |
-| square | IsoGridSquare |  |
+| cursor | ISMoveableCursor | The build cursor object the player is dragging. |
+| bRender | boolean | Whether the preview should be rendered. |
+| x | integer | World X co-ordinate of the square the build cursor is over. |
+| y | integer | World Y co-ordinate of the square the build cursor is over. |
+| z | integer | World Z co-ordinate of the square the build cursor is over. |
+| square | IsoGridSquare? | The square the build cursor is over. |
 ## OnDoTileBuilding3
-(Client) OnDoTileBuilding3: Fires when a controller player builds something.
+(Client) OnDoTileBuilding3: Fires when a controller player moves their build cursor.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| cursor | ISMoveableCursor |  |
-| bRender | boolean |  |
-| x | integer |  |
-| y | integer |  |
-| z | integer |  |
-| square | IsoGridSquare |  |
+| cursor | ISMoveableCursor | The cursor object the player is dragging. |
+| bRender | boolean | Whether the preview should be rendered. |
+| x | integer | World X co-ordinate of the square the build cursor is over. |
+| y | integer | World Y co-ordinate of the square the build cursor is over. |
+| z | integer | World Z co-ordinate of the square the build cursor is over. |
+| square | IsoGridSquare? | The square the build cursor is over. |
 ## OnDynamicMovableRecipe
-(Client) OnDynamicMovableRecipe: Fires when a local character crafts a dynamically generated Moveable scrapping recipe.
+(Client) OnDynamicMovableRecipe: Fires when a local character crafts a dynamically generated Movable scrapping recipe.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| sprite | string |  |
-| recipe | MoveableRecipe |  |
-| item | Moveable |  |
-| character | IsoGameCharacter |  |
+| sprite | string | Sprite of the movable. |
+| recipe | MoveableRecipe | The movable recipe that was crafted. |
+| item | Moveable | The movable item being scrapped. |
+| character | IsoGameCharacter | The character crafting the recipe. |
 ## onEnableSearchMode
 (Client) onEnableSearchMode: Fires when a local player enables search mode.
 
@@ -501,8 +501,8 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| context | ISContextMenu |  |
-| icon | ISBaseIcon |  |
+| context | ISContextMenu | The foraging context menu. |
+| icon | ISBaseIcon | The foraging icon the context menu was created for. |
 ## OnFillWorldObjectContextMenu
 (Client) OnFillWorldObjectContextMenu: Fires after the world context menu is filled.
 
@@ -547,7 +547,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| controllerId | integer |  |
+| controllerId | integer | ID of the controller. |
 ## OnGamepadDisconnect
 (Client) OnGamepadDisconnect: Fires after a controller is disconnected.
 
@@ -555,7 +555,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| controllerId | integer |  |
+| controllerId | integer | ID of the controller. |
 ## OnGetDBSchema
 (Multiplayer) (Client) OnGetDBSchema: Fires when receiving the database schema from the server.
 
@@ -563,7 +563,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| schema | table |  |
+| schema | table<string, table<integer, DBSchemaEntry>> |  |
 ## OnGetTableResult
 (Multiplayer) (Client) OnGetTableResult: Fires when receiving a database table query result from the server.
 
@@ -571,7 +571,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| data | ArrayList |  |
+| data | ArrayList<DBResult> |  |
 | rowId | integer |  |
 | tableName | string |  |
 ## OnGridBurnt
@@ -608,9 +608,9 @@ OnInitModdedWeatherStage: Fires when a modded weather period is created.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| weatherPeriod | WeatherPeriod |  |
-| weatherStage | WeatherStage |  |
-| strength | float |  |
+| weatherPeriod | WeatherPeriod | The weather period that was created. |
+| weatherStage | WeatherStage | The weather stage that was created. |
+| strength | float | TODO |
 ## OnInitRecordedMedia
 OnInitRecordedMedia: Fires when RecordedMedia is initialised.
 
@@ -618,7 +618,7 @@ OnInitRecordedMedia: Fires when RecordedMedia is initialised.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| recordedMedia | RecordedMedia |  |
+| recordedMedia | RecordedMedia | The RecordedMedia object. |
 ## OnInitSeasons
 OnInitSeasons: Fires when the ErosionManager is created.
 
@@ -646,7 +646,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| joypadId | integer |  |
+| joypadId | integer | ID of the joypad. |
 ## OnJoypadActivateUI
 (Client) OnJoypadActivateUI: Fires whenever a controller starts being used outside of gameplay, such as on the main menu.
 
@@ -654,7 +654,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| joypadId | integer |  |
+| joypadId | integer | ID of the joypad. |
 ## OnJoypadBeforeDeactivate
 (Client) OnJoypadBeforeDeactivate: Fires when a controller is disconnected, before disconnection is processed.
 
@@ -662,7 +662,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| joypadId | double |  |
+| joypadId | integer | ID of the joypad. |
 ## OnJoypadBeforeReactivate
 (Client) OnJoypadBeforeReactivate: Fires when a controller is connected, before connection is processed.
 
@@ -670,7 +670,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| joypadId | double |  |
+| joypadId | integer | ID of the joypad. |
 ## OnJoypadDeactivate
 (Client) OnJoypadDeactivate: Fires after a controller has been disconnected.
 
@@ -678,7 +678,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| joypadId | double |  |
+| joypadId | integer | ID of the joypad. |
 ## OnJoypadReactivate
 (Client) OnJoypadReactivate: Fires after a controller has been connected.
 
@@ -686,7 +686,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| joypadId | double |  |
+| joypadId | integer | ID of the joypad. |
 ## OnJoypadRenderUI
 (Client) OnJoypadRenderUI: Fires when rendering controller debug UI.
 
@@ -700,7 +700,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| key | integer |  |
+| key | integer | Key code of the key that was held. |
 ## OnKeyPressed
 (Client) OnKeyPressed: Fires when a key is released.
 
@@ -708,7 +708,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| key | integer |  |
+| key | integer | Key code of the key that was released. |
 ## OnKeyStartPressed
 (Client) OnKeyStartPressed: Fires when a key starts being pressed.
 
@@ -716,7 +716,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| key | integer |  |
+| key | integer | Key code of the key that was pressed. |
 ## OnLoad
 (Client) OnLoad: Fires upon finishing loading and entering the game.
 
@@ -736,7 +736,7 @@ OnLoadedTileDefinitions: Fires after loading the tile definitions.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| spriteManager | IsoSpriteManager |  |
+| spriteManager | IsoSpriteManager | The sprite manager. |
 ## OnLoadMapZones
 OnLoadMapZones: Fires before loading the map zones.
 
@@ -750,7 +750,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| square | IsoGridSquare |  |
+| square | IsoGridSquare | The square that had its moddata updated. |
 ## OnLoadRadioScripts
 OnLoadRadioScripts: Fires after ZomboidRadio loads the radio scripts.
 
@@ -758,8 +758,8 @@ OnLoadRadioScripts: Fires after ZomboidRadio loads the radio scripts.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| scriptManager | RadioScriptManager |  |
-| newGame | boolean |  |
+| scriptManager | RadioScriptManager | The radio script manager. |
+| newGame | boolean | True when a new save launches for the first time. |
 ## OnLoadSoundBanks
 (Client) OnLoadSoundBanks: Fires after the game loads the FMOD sound banks.
 
@@ -804,19 +804,19 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| x | double |  |
-| y | double |  |
+| x | double | Screen X co-ordinate of the click. |
+| y | double | Screen Y co-ordinate of the click. |
 ## OnMouseMove
-(Client) OnMouseMove: Fires every frame, unless mouse movement is eaten by something else. The latter two values are the first two multiplied by the mouse player's zoom level.
+(Client) OnMouseMove: Fires every frame, unless mouse movement is eaten by something else.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| x | integer |  |
-| y | integer |  |
-| xMultiplied | integer |  |
-| yMultiplied | integer |  |
+| x | integer | Screen X co-ordinate of the click. |
+| y | integer | Screen Y co-ordinate of the click. |
+| xMultiplied | integer | Screen X co-ordinate of the click multiplied by zoom level. |
+| yMultiplied | integer | Screen Y co-ordinate of the click multiplied by zoom level. |
 ## OnMouseUp
 (Client) OnMouseUp: Fires whenever the player releases the left mouse button, unless the input is eaten by UI.
 
@@ -824,8 +824,8 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| x | double |  |
-| y | double |  |
+| x | double | Screen X co-ordinate of the click. |
+| y | double | Screen Y co-ordinate of the click. |
 ## OnMultiTriggerNPCEvent
 OnMultiTriggerNPCEvent: Fires when the player triggers an NPC event.
 
@@ -843,7 +843,7 @@ OnNewFire: Fires when a new fire is started.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| fire | IsoFire |  |
+| fire | IsoFire | The fire that was created. |
 ## OnNewGame
 (Client) OnNewGame: Fires whenever a local player character is created for the first time.
 
@@ -860,7 +860,7 @@ OnObjectAboutToBeRemoved: Fires before a tile object is destroyed or picked up.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | IsoObject |  |
+| object | IsoObject | The object about to be removed. |
 ## OnObjectAdded
 OnObjectAdded: Fires when an object is added to the world. Note: usually not called on the client, but is in some cases.
 
@@ -885,9 +885,9 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | IsoObject |  |
-| x | double |  |
-| y | double |  |
+| object | IsoObject | The object that was clicked. |
+| x | double | Screen X co-ordinate of the click. |
+| y | double | Screen Y co-ordinate of the click. |
 ## OnObjectLeftMouseButtonUp
 (Client) OnObjectLeftMouseButtonUp: Fires when the player releases left click on a world object.
 
@@ -895,9 +895,9 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | IsoObject |  |
-| x | double |  |
-| y | double |  |
+| object | IsoObject | The object that was clicked. |
+| x | double | Screen X co-ordinate of the click. |
+| y | double | Screen Y co-ordinate of the click. |
 ## OnObjectRightMouseButtonDown
 (Client) OnObjectRightMouseButtonDown: Fires when the player right clicks a world object.
 
@@ -905,9 +905,9 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | IsoObject |  |
-| x | double |  |
-| y | double |  |
+| object | IsoObject | The object that was clicked. |
+| x | double | Screen X co-ordinate of the click. |
+| y | double | Screen Y co-ordinate of the click. |
 ## OnObjectRightMouseButtonUp
 (Client) OnObjectRightMouseButtonUp: Fires when the player releases right click on a world object.
 
@@ -915,9 +915,9 @@ OnObjectCollide: Fires when two objects collide with each other.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | IsoObject |  |
-| x | double |  |
-| y | double |  |
+| object | IsoObject | The object that was clicked. |
+| x | double | Screen X co-ordinate of the click. |
+| y | double | Screen Y co-ordinate of the click. |
 ## OnPlayerAttackFinished
 (Client) OnPlayerAttackFinished: Fires when a local player finishes attacking.
 
@@ -943,7 +943,7 @@ OnPlayerGetDamage: Fires every time a local player takes damage. Bleeding bodypa
 | Name | Type | Notes |
 | --- | --- | --- |
 | character | IsoGameCharacter | The character who took damage. |
-| damageType | string | Possible types are POISON, HUNGRY, SICK, BLEEDING, THIRST, HEAVYLOAD, INFECTION, LOWWEIGHT, FALLDOWN, FIRE, WEAPONHIT, CARHITDAMAGE, CARCRASHDAMAGE TODO: enum for this |
+| damageType | PlayerDamageType | The type of damage the player took. |
 | damage | float | The damage that was taken. |
 ## OnPlayerMove
 (Client) OnPlayerMove: Fires during each local player's update if they are walking.
@@ -974,7 +974,7 @@ OnPostFloorLayerDraw: Fires after a floor layer has been rendered.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| z | integer |  |
+| z | integer | The Z level that was rendered. |
 ## OnPostMapLoad
 OnPostMapLoad: Fires after the map has been loaded.
 
@@ -982,7 +982,7 @@ OnPostMapLoad: Fires after the map has been loaded.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| cell | IsoCell |  |
+| cell | IsoCell | The cell that was loaded. |
 | x | integer |  |
 | y | integer |  |
 ## OnPostRender
@@ -1140,10 +1140,10 @@ OnResolutionChange: Fires whenever the window resolution changes.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| oldX | integer |  |
-| oldY | integer |  |
-| newX | integer |  |
-| newY | integer |  |
+| oldX | integer | Previous width of the window. |
+| oldY | integer | Previous height of the window. |
+| newX | integer | New width of the window. |
+| newY | integer | New height of the window. |
 ## OnRightMouseDown
 (Client) OnRightMouseDown: Fires when the player right clicks, as long as the input isn't eaten by UI.
 
@@ -1151,8 +1151,8 @@ OnResolutionChange: Fires whenever the window resolution changes.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| x | double |  |
-| y | double |  |
+| x | double | Screen X co-ordinate of the click. |
+| y | double | Screen Y co-ordinate of the click. |
 ## OnRightMouseUp
 (Client) OnRightMouseUp: Fires whenever the player releases the right mouse button, unless the input is eaten by UI.
 
@@ -1160,8 +1160,8 @@ OnResolutionChange: Fires whenever the window resolution changes.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| x | double |  |
-| y | double |  |
+| x | double | Screen X co-ordinate of the click. |
+| y | double | Screen Y co-ordinate of the click. |
 ## OnSafehousesChanged
 (Multiplayer) (Client) OnSafehousesChanged: Fires every time a safehouse is added, removed or changed.
 
@@ -1191,7 +1191,7 @@ OnSeeNewRoom: Fires when a room becomes visible for the first time.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| room | IsoRoom |  |
+| room | IsoRoom | The room. |
 ## OnServerCommand
 (Multiplayer) (Client) OnServerCommand: Fires when a server command sent through sendServerCommand is received by the client.
 
@@ -1199,9 +1199,9 @@ OnSeeNewRoom: Fires when a room becomes visible for the first time.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| module | string | The module the command was sent with |
-| command | string | The command the command was sent with |
-| args | table | The arguments table the command was sent with |
+| module | string | The module the command was sent with. |
+| command | string | The command the command was sent with. |
+| args | table | The arguments table the command was sent with. |
 ## OnServerFinishSaving
 (Multiplayer) (Client) OnServerFinishSaving: Fires when the server has finished saving and unpauses the game.
 
@@ -1263,7 +1263,7 @@ None.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| steamID | string |  |
+| steamID | string | Steam ID of the friend who was gained/lost. |
 ## OnSteamGameJoin
 (Multiplayer) (Client) OnSteamGameJoin: Fires when the player joins a game through steam.
 
@@ -1379,17 +1379,17 @@ OnThrowableExplode: Fires when a throwable or trap explodes.
 | throwable | IsoTrap | The explosive. |
 | square | IsoGridSquare | The square it exploded on. |
 ## OnThunderEvent
-(Client) OnThunderEvent: Fires when thunder hits.
+(Client) OnThunderEvent: Fires when a thunder event is enqueued.
 
 **Parameters**
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| x | integer |  |
-| y | integer |  |
-| strike | boolean |  |
-| light | boolean |  |
-| rumble | boolean |  |
+| x | integer | World X co-ordinate where the thunder event will happen. |
+| y | integer | World Y co-ordinate where the thunder event will happen. |
+| strike | boolean | Whether the thunder event will make a striking sound. |
+| light | boolean | Whether the thunder event will create light. |
+| rumble | boolean | Whether the thunder event will make a rumbling sound. |
 ## OnTick
 OnTick: Fires every game tick.
 
@@ -1413,7 +1413,7 @@ OnTileRemoved: Fires when a tile object is removed.
 
 | Name | Type | Notes |
 | --- | --- | --- |
-| object | IsoObject |  |
+| object | IsoObject | The object being removed. |
 ## onToggleSearchMode
 (Client) onToggleSearchMode: Fires when a local player toggles search mode.
 
