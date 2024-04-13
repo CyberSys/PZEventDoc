@@ -8,7 +8,7 @@
 ---@field items table<integer, InventoryItem> List of items in the stack. The first item is repeated as the second element.
 ---@field count integer The number of items in the stack (including the doubled up first item).
 ---@field equipped boolean Whether the item is equipped.
----@field inHotbar boolean|nil Whether the item is taking up a slot on the player's hotbar. Sometimes nil.
+---@field inHotbar boolean? Whether the item is taking up a slot on the player's hotbar. Sometimes nil.
 ---@field invPanel ISInventoryPane The inventory panel the item belongs to.
 ---@field name string Translated name of the item. <br> 'equipped:' is prepended if it is equipped. <br> 'hotbar:' is prepended if the item is in the hotbar, but not equipped.
 ---@field cat string Untranslated item category.
