@@ -1038,8 +1038,8 @@
                     },
                     {
                         "name": "items",
-                        "type": "table",
-                        "notes": "The items that were selected to fill the context menu. TODO: this has a complicated structure and probably needs a class definition"
+                        "type": "table<integer, InventoryItem>|table<integer, ContextMenuItemStack>",
+                        "notes": "The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems."
                     }
                 ]
             }
@@ -2102,8 +2102,8 @@
                     },
                     {
                         "name": "items",
-                        "type": "table",
-                        "notes": "The items that were selected to created the context menu. TODO: this has a complicated structure and probably needs a class definition"
+                        "type": "table<integer, InventoryItem>|table<integer, ContextMenuItemStack>",
+                        "notes": "The items that were selected to fill the context menu. If only full stacks are selected, a table of ContextMenuItemStacks is passed. Otherwise it is a table of InventoryItems."
                     }
                 ]
             }
