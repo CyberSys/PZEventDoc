@@ -24,14 +24,6 @@ class BaseGenerator:
         if extensions:
             GeneratorManager.registerGenerator(cls, extensions)
 
-    def beginFile(self):
-        """
-        Adds opening metadata to the annotations
-
-        :return:
-        """
-        self.totalString = ""
-
     def writeLine(self, text: str):
         """
         Adds a line of text to the annotations

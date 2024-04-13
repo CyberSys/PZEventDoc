@@ -64,8 +64,6 @@ if __name__ == "__main__":
         extension: str = outputFile.rsplit('.', 1)[1].lower()
         generator = GeneratorManager.getGenerator(extension, wantDeprecated)
 
-        generator.beginFile()
-
         events: dict = data.get("events")
         if events:
             for name, event in events.items():
