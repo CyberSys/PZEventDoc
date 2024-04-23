@@ -1,9 +1,11 @@
 from generators.BaseGenerator import BaseGenerator
 from PZEDGlobals import WantDeprecated
 
+
 def getFileContents(path: str):
     file = open(path, 'r')
     return file.read()
+
 
 class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
     # List of table names that have already been initialised
@@ -21,7 +23,7 @@ class LuaCATSGenerator(BaseGenerator, extensions=["lua"]):
         self.initialisedTables = []
         self.currentIndentation = 0
         try:
-            self.totalString = getFileContents("extra.lua")
+            self.totalString = getFileContents("extra.lua") + "\n"
         except OSError:
             print("Could not read extra.lua")
 
