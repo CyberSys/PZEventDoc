@@ -35,9 +35,9 @@ jobs:
       run: cd PZEventDoc
         
     - name: Create Events.lua
-      run: python PZEventDoc/PZEventDoc.py -s 'PZEventDoc/data.json' -o 'PZEventStubs/Events.lua'
+      run: python PZEventDoc.py -s 'data.json' -o 'Events.lua'
     - name: Create Events-deprecated.lua
-      run: python PZEventDoc/PZEventDoc.py -D -s 'PZEventDoc/data.json' -o 'PZEventStubs/Events-deprecated.lua'
+      run: python PZEventDoc.py -D -s 'data.json' -o 'Events-deprecated.lua'
 
     - name: Return to root dir
       run: cd ..
