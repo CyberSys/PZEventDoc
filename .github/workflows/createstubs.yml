@@ -29,18 +29,14 @@ jobs:
       uses: actions/setup-python@v4.6.1
       with:
         python-version: '3.11'
-
-    # TODO: this is needed because extra.lua is currently only looked for in the working directory, seems kinda dumb
-    - name: Move to PZEventDoc dir
-      run: cd PZEventDoc
         
     - name: Create Events.lua
+      working-directory: ./PZEventDoc
       run: python PZEventDoc.py -s 'data.json' -o 'Events.lua'
+      
     - name: Create Events-deprecated.lua
+      working-directory: ./PZEventDoc
       run: python PZEventDoc.py -D -s 'data.json' -o 'Events-deprecated.lua'
-
-    - name: Return to root dir
-      run: cd ..
       
     # TODO: can we lint the files before pushing them?
     
