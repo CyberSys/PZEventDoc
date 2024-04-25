@@ -943,7 +943,7 @@ OnPlayerGetDamage: Fires every time a local player takes damage. Bleeding bodypa
 | Name | Type | Notes |
 | --- | --- | --- |
 | character | IsoGameCharacter | The character who took damage. |
-| damageType | PlayerDamageType | The type of damage the player took. |
+| damageType | PlayerDamageType | The type of damage the character took. |
 | damage | float | The damage that was taken. |
 ## OnPlayerMove
 (Client) OnPlayerMove: Fires during each local player's update if they are walking.
@@ -1481,7 +1481,7 @@ OnWaterAmountChange: Fires when the amount of water in an object changes.
 | object | IsoObject | The object which has gained/lost water. |
 | previousAmount | integer | The amount of water the object had before the change. |
 ## OnWeaponHitCharacter
-(Client) OnWeaponHitCharacter: Fires when a non-zombie character is hit by an attack from another non-zombie character.
+(Client) OnWeaponHitCharacter: Fires when a non-zombie character is hit by an attack from a local player.
 
 **Parameters**
 
@@ -1884,6 +1884,14 @@ Recipe_OnGiveXP: Called after crafting the recipe.
 | sources | ArrayList<InventoryItem> | The items used to craft the recipe |
 | result | InventoryItem | The item crafted by the recipe. Passed even if RemoveResultItem is set |
 | character | IsoGameCharacter | The character who crafted the recipe |
+## Recipe_GetItemTypes
+Recipe_GetItemTypes: Called by the recipe manager for every recipe source after the lua/server/ folder loads. The ArrayList should be filled with Item objects to include as part of the recipe source.
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| outItems | ArrayList<Item> | An empty ArrayList to be filled with items. |
 ## VehiclePart_init
 VehiclePart_init: Called every time the part loads in or is reset.
 
@@ -2003,4 +2011,18 @@ VehiclePart_Uninstall_complete: Called when the part is finished being uninstall
 | vehicle | BaseVehicle | The vehicle the part belongs to |
 | part | VehiclePart | The part that was uninstalled |
 | item | InventoryItem | The item that was removed |
+## ItemContainer_Predicate
+ItemContainer_Predicate: Used by the -Eval methods in ItemContainer. These methods will only consider items that this function returns true for.
+
+**Parameters**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| item | InventoryItem | The item being tested. |
+
+**Returns**
+
+| Name | Type | Notes |
+| --- | --- | --- |
+| allowItem | boolean | Whether the item is a valid match. |
 
