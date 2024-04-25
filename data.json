@@ -3943,6 +3943,16 @@
             ],
             "notes": "Called after crafting the recipe."
         },
+        "Recipe_GetItemTypes": {
+            "parameters": [
+                {
+                    "name": "outItems",
+                    "type": "ArrayList<Item>",
+                    "notes": "An empty ArrayList to be filled with items."
+                }
+            ],
+            "notes": "Called by the recipe manager for every recipe source after the lua/server/ folder loads. The ArrayList should be filled with Item objects to include as part of the recipe source."
+        },
         "VehiclePart_init": {
             "parameters": [
                 {
