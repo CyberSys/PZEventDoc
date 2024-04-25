@@ -4147,6 +4147,21 @@
                 }
             ],
             "notes": "Called when the part is finished being uninstalled."
+        },
+        "ItemContainer_Predicate": {
+            "parameters": [
+                {
+                    "name": "item",
+                    "type": "InventoryItem",
+                    "notes": "The item being tested."
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "notes": "Whether the item is a valid match.",
+                "name": "allowItem"
+            },
+            "notes": "Used by the -Eval methods in ItemContainer. These methods will only consider items that this function returns true for."
         }
     }
 }
